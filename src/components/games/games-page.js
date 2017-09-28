@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as gameActions from '../actions/game-actions';
 
 class GamesPage extends React.Component {
@@ -25,7 +26,7 @@ class GamesPage extends React.Component {
   }
 
   handleSubmit() {
-    this.props.createGame(this.state.game);
+    this.props.actions.createGame(this.state.game);
   }
 
   gameRow(game, index) {
@@ -51,7 +52,7 @@ class GamesPage extends React.Component {
 
 GamesPage.propTypes = {
   games: PropTypes.array.isRequired,
-  createGame: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
@@ -62,7 +63,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    createGame: game => dispatch(gameActions.createGame(game))
+    actions: bindActionCreators(gameActions, dispatch)
   };
 }
 
