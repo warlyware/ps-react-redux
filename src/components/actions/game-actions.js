@@ -1,6 +1,8 @@
+import * as types from './action-types';
+
 export function createGame(game) {
   return {
-    type: 'CREATE_GAME',
+    type: types.CREATE_GAME,
     game: game
   };
 }
