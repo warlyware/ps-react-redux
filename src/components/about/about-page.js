@@ -7,7 +7,7 @@ class AboutPage extends React.Component {
         <h1>About</h1>
         <p>This is an app that uses React, Redux, and React Router.</p>
       </div>
-    )
+    );
   }
 }
 
