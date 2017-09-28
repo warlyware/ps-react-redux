@@ -25,7 +25,7 @@ class GamesPage extends React.Component {
   }
 
   handleSubmit() {
-    this.props.dispatch(gameActions.createGame(this.state.game));
+    this.props.createGame(this.state.game);
   }
 
   gameRow(game, index) {
@@ -50,8 +50,8 @@ class GamesPage extends React.Component {
 }
 
 GamesPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  games: PropTypes.array.isRequired
+  games: PropTypes.array.isRequired,
+  createGame: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
@@ -60,4 +60,10 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(GamesPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    createGame: game => dispatch(gameActions.createGame(game))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GamesPage);
