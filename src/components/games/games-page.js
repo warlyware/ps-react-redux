@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import * as gameActions from '../actions/game-actions';
 
 class GamesPage extends React.Component {
   constructor(props, context) {
@@ -23,7 +25,7 @@ class GamesPage extends React.Component {
   }
 
   handleSubmit() {
-    alert(`Saving ${this.state.game.title}`);
+    this.props.dispatch(gameActions.createGame(this.state.course));
   }
 
   render() {
@@ -42,4 +44,10 @@ class GamesPage extends React.Component {
   }
 }
 
-export default GamesPage;
+function mapStateToProps(state, ownProps) {
+  return {
+    games: state.games
+  };
+}
+
+export default connect(mapStateToProps)(GamesPage);
