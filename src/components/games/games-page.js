@@ -8,7 +8,7 @@ class GamesPage extends React.Component {
 
     this.state = {
       game: {
-        title: null
+        title: ''
       }
     };
 
@@ -25,13 +25,18 @@ class GamesPage extends React.Component {
   }
 
   handleSubmit() {
-    this.props.dispatch(gameActions.createGame(this.state.course));
+    this.props.dispatch(gameActions.createGame(this.state.game));
+  }
+
+  gameRow(game, index) {
+    return <div key={index}>{game.title}</div>;
   }
 
   render() {
     return(
       <div>
         <h1>Games</h1>
+        {this.props.games.map(this.gameRow)}
         <h3>Add Game</h3>
         <input type="text"
         onChange={this.handleTitleChange}
@@ -43,6 +48,11 @@ class GamesPage extends React.Component {
     );
   }
 }
+
+GamesPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  games: PropTypes.array.isRequired
+};
 
 function mapStateToProps(state, ownProps) {
   return {
