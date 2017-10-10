@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as gameActions from '../actions/game-actions';
+import * as gameActions from '../../actions/game-actions';
 
 class GamesPage extends React.Component {
   constructor(props, context) {

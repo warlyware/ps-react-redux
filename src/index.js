@@ -5,6 +5,7 @@ import configureStore from './components/store/configure-store';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
+import { loadGames } from './actions/game-actions';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 

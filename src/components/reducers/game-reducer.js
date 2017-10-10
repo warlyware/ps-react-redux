@@ -1,4 +1,4 @@
-import * as types from '../actions/action-types';
+import * as types from '../../actions/action-types';
 
 export default function gameReducer(state = [], action) {
   switch(action.type) {

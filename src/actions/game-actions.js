@@ -1,5 +1,5 @@
 import * as types from './action-types';
-import gameApi from '../../api/mock-game-api';
+import gameApi from '../api/mock-game-api';
 
 export function loadGamesSuccess(games) {
   return {
